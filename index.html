@@ -1,258 +1,319 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ADRIUX Trading: academia, análisis de mercados, inteligencia artificial y gestión de riesgo.">
+  <meta name="description" content="ADRIUX Trading Academy: academia profesional de trading de futuros con 3 niveles, 15 clases, ejercicios, exámenes, calculadora de riesgo MNQ, indicadores de TradingView y guía de cuentas fondeadas.">
+  <meta name="theme-color" content="#090c13">
+  <meta property="og:title" content="ADRIUX Trading | Trading & AI Academy">
+  <meta property="og:description" content="Aprende trading de futuros desde cero hasta nivel avanzado.">
   <title>ADRIUX Trading | Trading & AI Academy</title>
-  <style>
-    :root {
-      --gold: #e8b84b;
-      --dark: #090c13;
-      --panel: #151b27;
-      --muted: #aeb6c4;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--dark);
-      color: white;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-    header {
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      border-bottom: 1px solid #343434;
-    }
-    .brand {
-      color: var(--gold);
-      font-size: 23px;
-      font-weight: bold;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 14px;
-    }
-    nav a:hover { color: var(--gold); }
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: radial-gradient(
-        ellipse at top, #263046, #090c13 70%
-      );
-    }
-    h1 {
-      font-size: clamp(36px, 7vw, 68px);
-      margin: 0;
-      color: var(--gold);
-    }
-    h2 { color: var(--gold); }
-    .subtitle {
-      color: var(--muted);
-      font-size: 20px;
-      max-width: 680px;
-      margin: 20px auto;
-    }
-    .button {
-      display: inline-block;
-      padding: 13px 25px;
-      margin: 10px;
-      background: var(--gold);
-      color: #111;
-      text-decoration: none;
-      border: 0;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .outline {
-      background: transparent;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-    }
-    section {
-      padding: 65px 8%;
-      max-width: 1300px;
-      margin: auto;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--panel);
-      padding: 28px;
-      border: 1px solid #343b48;
-      border-radius: 14px;
-    }
-    .card h3 { color: var(--gold); }
-    .card p { color: var(--muted); }
-    input {
-      padding: 13px;
-      width: 100%;
-      background: #0c1019;
-      color: white;
-      border: 1px solid #505768;
-      border-radius: 7px;
-      margin: 8px 0;
-    }
-    label { display: block; margin-top: 12px; }
-    .result {
-      color: var(--gold);
-      font-size: 23px;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-    footer {
-      text-align: center;
-      padding: 35px 15px;
-      border-top: 1px solid #343434;
-      color: var(--muted);
-    }
-    footer a { color: var(--gold); }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23090c13'/%3E%3Cpath d='M7 23l6-8 5 4 7-10' stroke='%23e8b84b' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
 
-<header>
-  <div class="brand">ADRIUX TRADING</div>
-  <nav>
+<header class="cabecera">
+  <a class="brand" href="#inicio">ADRIUX TRADING</a>
+  <nav class="nav-principal" id="menu" aria-label="Principal">
     <a href="#academy">Academia</a>
     <a href="#tools">Herramientas</a>
     <a href="#risk">Calculadora</a>
+    <a href="#indicadores">Indicadores</a>
+    <a href="#fondeo">Cuentas fondeadas</a>
+    <a href="#asistente">Asistente IA</a>
     <a href="#community">Comunidad</a>
   </nav>
+  <div class="cabecera-acciones">
+    <a class="chip-progreso" href="#/progreso" title="Mi progreso">Progreso <strong id="progreso-mini">0/15</strong></a>
+    <button class="button pequeno outline" type="button" data-abrir-cuenta>Acceder</button>
+    <button id="menu-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button>
+  </div>
 </header>
 
-<main>
-  <div class="hero">
-    <h1>ADRIUX TRADING</h1>
-    <p class="subtitle">
-      Trade Smarter. Powered by AI.
-      <br>
-      Educación, tecnología y análisis para traders.
-    </p>
-    <a href="#academy" class="button">Explorar Academia</a>
-    <a href="#tools" class="button outline">Explorar herramientas</a>
-  </div>
+<main id="contenido">
+  <!-- Vista dinámica: clases, exámenes y progreso (rutas #/...) -->
+  <div id="vista" hidden></div>
 
-  <section id="academy">
-    <h2>ADRIUX Trading Academy</h2>
-    <p>Aprende trading desde cero hasta conceptos avanzados.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Nivel 1 — Principiante</h3>
-        <p>
-          Mercados financieros, futuros, velas japonesas,
-          TradingView y fundamentos de riesgo.
-        </p>
-        <p>5 lecciones planificadas</p>
-       <details open><summary> Psicología del trading</summary><p>Cómo manejar emociones básicas: miedo, euforia y paciencia.</p></details
-       <details open><summary> Gestión de riesgo</summary><p> Tamaño de posición, stop loss y metas realistas.</p></details>
-        <details open><summary>Plataformas de trading</summary><p>Cómo usar TradingView de forma básica: gráficos, velas y herramientas simples.</p></details>
-        <details open><summary>Mercados financieros</summary><p>Qué son los mercados y cómo funcionan en términos simples.</p></details>
-      </div>
-      <div class="card">
-        <h3>Nivel 2 — Intermedio</h3>
-        <p>
-          Soportes, resistencias, liquidez, VWAP,
-          estrategias y cuentas fondeadas.
-        </p>
-        <p>5 lecciones planificadas</p>
-      </div>
-      <div class="card">
-        <h3>Nivel 3 — Avanzado</h3>
-        <p>
-          Análisis multitemporal, volumen, automatización,
-          inteligencia artificial y disciplina.
-        </p>
-        <p>5 lecciones planificadas</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="tools">
-    <h2>Trading & AI Tools</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>AI Market Assistant</h3>
-        <p>
-          Próximamente: asistente educativo para
-          interpretar gráficos y escenarios del mercado.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Trading Indicators</h3>
-        <p>
-          Próximamente: indicadores y herramientas
-          para análisis técnico.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Funded Accounts</h3>
-        <p>
-          Guías educativas sobre reglas, evaluaciones
-          y gestión del riesgo en cuentas fondeadas.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="risk">
-    <h2>Calculadora de Riesgo MNQ</h2>
-    <p>
-      Calcula el riesgo aproximado de una operación
-      de futuros Micro E-mini Nasdaq-100 (MNQ).
-    </p>
-    <div class="card">
-      <label for="contracts">Número de contratos MNQ</label>
-      <input id="contracts" type="number" min="1" step="1" value="1">
-
-      <label for="points">Distancia del stop en puntos</label>
-      <input id="points" type="number" min="0.25" step="0.25" value="20">
-
-      <button class="button" onclick="calculateRisk()">
-        Calcular riesgo
-      </button>
-
-      <div class="result" id="result" aria-live="polite"></div>
-      <p>
-        MNQ = $2 por punto y contrato.
-        No incluye comisiones, slippage ni otros costos.
+  <!-- Página principal -->
+  <div id="inicio">
+    <div class="hero">
+      <span class="etiqueta">Trading &amp; AI Academy</span>
+      <h1>ADRIUX TRADING</h1>
+      <p class="subtitle">
+        Trade Smarter. Powered by AI.
+        <br>
+        Educación, tecnología y análisis para traders.
       </p>
+      <a href="#academy" class="button">Explorar Academia</a>
+      <a href="#tools" class="button outline">Explorar herramientas</a>
+      <div class="hero-datos">
+        <div><strong>3</strong>niveles</div>
+        <div><strong>15</strong>clases completas</div>
+        <div><strong>45</strong>ejercicios</div>
+        <div><strong>3</strong>exámenes</div>
+      </div>
     </div>
-  </section>
 
-  <section id="community">
-    <h2>Únete a ADRIUX Trading</h2>
-    <p>
-      Próximamente: videos educativos, análisis de
-      mercados y nuevas herramientas de inteligencia artificial.
-    </p>
-    <a class="button"
-       href="https://www.instagram.com/adriuxtrading/"
-       target="_blank" rel="noopener noreferrer">
-       Instagram
-    </a>
-    <a class="button outline"
-       href="https://www.youtube.com/results?search_query=ADRIUX+Trading"
-       target="_blank" rel="noopener noreferrer">
-       Buscar en YouTube
-    </a>
-  </section>
+    <!-- ACADEMIA -->
+    <section id="academy" class="seccion">
+      <h2>ADRIUX Trading Academy</h2>
+      <p class="intro">Aprende trading de futuros desde cero hasta conceptos avanzados. Cada clase incluye explicación detallada, gráficos de ejemplo, ejercicios prácticos con solución y un cuestionario. Al final de cada nivel, un examen comprueba lo aprendido. Todas las clases son gratuitas.</p>
+      <div class="grid" id="academia-niveles">
+        <noscript><p>Activa JavaScript para ver las clases de la academia.</p></noscript>
+      </div>
+    </section>
+
+    <!-- HERRAMIENTAS -->
+    <section id="tools" class="seccion">
+      <h2>Trading &amp; AI Tools</h2>
+      <p class="intro">Herramientas prácticas para aplicar lo que aprendes. Cada una indica si funciona ya o si necesita una conexión adicional.</p>
+      <div class="grid">
+        <a class="card enlace-card" href="#risk">
+          <span class="badge ok">Disponible</span>
+          <h3>Calculadora de riesgo MNQ</h3>
+          <p>Riesgo de una operación y tamaño de posición para MNQ, NQ, MES y ES, con comisiones, ratio y precios de stop y objetivo.</p>
+        </a>
+        <a class="card enlace-card" href="#indicadores">
+          <span class="badge ok">Disponible</span>
+          <h3>Indicadores de TradingView</h3>
+          <p>4 indicadores en Pine Script v6: VWAP con bandas, niveles clave, tamaño de posición y cruce de EMAs con alertas.</p>
+        </a>
+        <a class="card enlace-card" href="#fondeo">
+          <span class="badge ok">Disponible</span>
+          <h3>Cuentas fondeadas</h3>
+          <p>Guía de reglas y simulador de trailing drawdown para calcular cuánto puedes arriesgar sin perder la cuenta.</p>
+        </a>
+        <a class="card enlace-card" href="#asistente">
+          <span class="badge ok">Sin conexión</span> <span class="badge con">IA: requiere conexión</span>
+          <h3>AI Market Assistant</h3>
+          <p>Asistente educativo con glosario, búsqueda en las clases y cálculos. Las respuestas con IA real se activarán con un servidor propio.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section id="risk" class="seccion">
+      <h2>Calculadora de Riesgo MNQ</h2>
+      <p class="intro">Calcula el riesgo de una operación de futuros Micro E-mini Nasdaq-100 (MNQ) o el número de contratos que puedes operar según tu cuenta. También admite NQ, MES y ES.</p>
+      <div class="card">
+        <div class="campos">
+          <div>
+            <label for="calc-instrumento">Instrumento</label>
+            <select id="calc-instrumento">
+              <option value="MNQ" selected>MNQ — Micro Nasdaq ($2/pt)</option>
+              <option value="NQ">NQ — E-mini Nasdaq ($20/pt)</option>
+              <option value="MES">MES — Micro S&amp;P 500 ($5/pt)</option>
+              <option value="ES">ES — E-mini S&amp;P 500 ($50/pt)</option>
+            </select>
+          </div>
+          <div>
+            <label for="calc-comision">Comisión ida y vuelta por contrato ($)</label>
+            <input id="calc-comision" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+          </div>
+        </div>
+        <p id="calc-info"></p>
+
+        <div class="pestanas" role="tablist" aria-label="Modo de cálculo">
+          <button type="button" role="tab" aria-selected="true" data-modo="panel-riesgo">Riesgo de una operación</button>
+          <button type="button" role="tab" aria-selected="false" data-modo="panel-tamano">Tamaño de posición</button>
+        </div>
+
+        <div class="calc-panel" id="panel-riesgo" role="tabpanel">
+          <div class="campos">
+            <div>
+              <label for="contracts">Número de contratos</label>
+              <input id="contracts" type="number" min="1" step="1" value="1" inputmode="numeric">
+            </div>
+            <div>
+              <label for="points">Distancia del stop en puntos</label>
+              <input id="points" type="number" min="0.25" step="0.25" value="20" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-objetivo">Objetivo en puntos (opcional)</label>
+              <input id="calc-objetivo" type="number" min="0" step="0.25" placeholder="Ej. 40" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-entrada">Precio de entrada (opcional)</label>
+              <input id="calc-entrada" type="number" min="0" step="0.25" placeholder="Ej. 20150" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-direccion">Dirección</label>
+              <select id="calc-direccion">
+                <option value="largo">Compra (largo)</option>
+                <option value="corto">Venta (corto)</option>
+              </select>
+            </div>
+          </div>
+          <button class="button" type="button" id="btn-riesgo">Calcular riesgo</button>
+          <div class="result" id="result" aria-live="polite"></div>
+        </div>
+
+        <div class="calc-panel" id="panel-tamano" role="tabpanel" hidden>
+          <div class="campos">
+            <div>
+              <label for="calc-saldo">Saldo de la cuenta ($)</label>
+              <input id="calc-saldo" type="number" min="0" step="100" value="10000" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-pct">Riesgo por operación (%)</label>
+              <input id="calc-pct" type="number" min="0.1" step="0.1" value="1" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-fijo">o riesgo fijo en $ (opcional)</label>
+              <input id="calc-fijo" type="number" min="0" step="10" placeholder="Ej. 200" inputmode="decimal">
+            </div>
+            <div>
+              <label for="calc-stop2">Distancia del stop en puntos</label>
+              <input id="calc-stop2" type="number" min="0.25" step="0.25" value="20" inputmode="decimal">
+            </div>
+          </div>
+          <button class="button" type="button" id="btn-tamano">Calcular contratos</button>
+          <div id="result-tamano" aria-live="polite"></div>
+        </div>
+
+        <p class="nota">MNQ = $2 por punto y contrato (tick de 0,25 = $0,50). El cálculo no incluye slippage. Los resultados son orientativos.</p>
+      </div>
+    </section>
+
+    <!-- INDICADORES -->
+    <section id="indicadores" class="seccion">
+      <h2>Indicadores de TradingView</h2>
+      <p class="intro">Copia el código, abre TradingView, pulsa <strong>Editor Pine</strong> (parte inferior del gráfico), pega el código, guárdalo y pulsa <strong>Añadir al gráfico</strong>. Funcionan directamente, sin conexión adicional. Escritos en Pine Script v6.</p>
+      <div class="grid-2" id="lista-indicadores"></div>
+    </section>
+
+    <!-- CUENTAS FONDEADAS -->
+    <section id="fondeo" class="seccion">
+      <h2>Cuentas fondeadas</h2>
+      <p class="intro">Guía educativa sobre reglas, evaluaciones y gestión del riesgo en cuentas fondeadas de futuros. Las reglas varían entre empresas y cambian con frecuencia: consulta siempre las condiciones oficiales actuales antes de pagar una evaluación.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Lo esencial</h3>
+          <details open><summary>Cómo funciona una evaluación</summary><p>Pagas una cuota, operas una cuenta simulada y debes alcanzar un objetivo de beneficio sin romper las reglas de pérdida. Si apruebas, accedes a una cuenta financiada y recibes un porcentaje de los beneficios.</p></details>
+          <details><summary>Trailing drawdown</summary><p>El umbral de pérdida sigue a tu saldo máximo y nunca baja. En la versión intradía cuenta incluso beneficios no realizados; en la de cierre de día (EOD), solo el saldo al final de la sesión. En muchas empresas deja de subir al alcanzar el saldo inicial.</p></details>
+          <details><summary>Límite de pérdida diaria</summary><p>Pérdida máxima permitida en un solo día. Algunas empresas lo aplican y otras no. Pon siempre tu propio límite, más estricto que el oficial.</p></details>
+          <details><summary>Regla de consistencia</summary><p>Ningún día puede representar más de un porcentaje del beneficio total. Un día enorme puede obligarte a seguir operando para diluirlo.</p></details>
+          <details><summary>Costes y realidad</summary><p>Cuotas de evaluación, activación y datos. La mayoría de los participantes no aprueba. Trátalo como un gasto de formación, revisa la reputación y el historial de pagos de la empresa en fuentes independientes.</p></details>
+          <a class="button" href="#/clase/n2-5">Clase completa: Cuentas fondeadas</a>
+        </div>
+
+        <div class="card">
+          <h3>Simulador de drawdown</h3>
+          <div class="campos">
+            <div><label for="f-inicial">Tamaño de la cuenta ($)</label><input id="f-inicial" type="number" value="50000" min="0" step="1000"></div>
+            <div><label for="f-dd">Drawdown máximo ($)</label><input id="f-dd" type="number" value="2000" min="0" step="100"></div>
+            <div>
+              <label for="f-tipo">Tipo de drawdown</label>
+              <select id="f-tipo">
+                <option value="intradia">Trailing intradía</option>
+                <option value="eod" selected>Trailing al cierre del día (EOD)</option>
+                <option value="estatico">Estático</option>
+              </select>
+            </div>
+            <div><label for="f-diario">Límite diario ($, opcional)</label><input id="f-diario" type="number" value="1000" min="0" step="100"></div>
+            <div><label for="f-pico">Saldo máximo alcanzado ($)</label><input id="f-pico" type="number" value="51000" min="0" step="100"></div>
+            <div><label for="f-saldo">Saldo actual ($)</label><input id="f-saldo" type="number" value="50400" min="0" step="100"></div>
+            <div><label for="f-riesgo">Riesgo por operación ($)</label><input id="f-riesgo" type="number" value="200" min="1" step="10"></div>
+            <div><label for="f-stop">Stop habitual (puntos MNQ)</label><input id="f-stop" type="number" value="20" min="0.25" step="0.25"></div>
+          </div>
+          <label class="check"><input id="f-congela" type="checkbox" checked> El trailing se detiene al alcanzar el saldo inicial</label>
+          <button class="button" type="button" id="f-calcular">Calcular</button>
+          <div id="f-resultado" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASISTENTE IA -->
+    <section id="asistente" class="seccion">
+      <h2>Asistente IA</h2>
+      <p class="intro">Habla con <strong>ADRI</strong>, nuestro asistente de voz: pulsa el botón flotante de abajo a la derecha (disponible también dentro de las clases). Aquí tienes además el asistente de texto, que funciona sin conexión. Ninguno da señales de compra o venta ni predicciones de mercado.</p>
+      <div class="grid-2">
+        <div class="card chat">
+          <div class="chat-cabecera"><strong>ADRIUX Assistant</strong><span id="chat-estado"></span></div>
+          <div id="chat-mensajes" aria-live="polite"></div>
+          <div class="chat-sugerencias">
+            <button type="button" data-pregunta="¿Qué es el VWAP?">¿Qué es el VWAP?</button>
+            <button type="button" data-pregunta="¿Qué es el trailing drawdown?">Trailing drawdown</button>
+            <button type="button" data-pregunta="3 contratos 15 puntos">3 contratos 15 puntos</button>
+            <button type="button" data-pregunta="¿Cuántos contratos con $200 y stop de 25 puntos?">¿Cuántos contratos?</button>
+          </div>
+          <form id="chat-form" autocomplete="off">
+            <label for="chat-input" class="salto">Tu pregunta</label>
+            <input id="chat-input" type="text" placeholder="Escribe tu pregunta…" maxlength="500">
+            <button class="button" type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="estado-funciones">
+            <div class="card">
+              <h3><span class="badge ok">Funciona ya</span></h3>
+              <ul>
+                <li><strong>ADRI, asistente de voz (ElevenLabs):</strong> botón flotante en toda la web. Necesita internet y permiso de micrófono.</li>
+                <li>Glosario de más de 40 conceptos de trading.</li>
+                <li>Búsqueda de la clase donde se explica cada tema.</li>
+                <li>Cálculo de riesgo: <em>"2 contratos 18 puntos"</em>.</li>
+                <li>Tamaño de posición: <em>"¿cuántos contratos con $200 y stop de 25 puntos?"</em></li>
+                <li>Progreso de la academia guardado en este navegador.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3><span class="badge con">Requiere conexión adicional</span></h3>
+              <ul>
+                <li><strong>Respuestas abiertas con IA:</strong> servidor propio que guarde la clave de la API (nunca en la web).</li>
+                <li><strong>Análisis de capturas de gráficos:</strong> IA con visión a través del mismo servidor.</li>
+                <li><strong>Datos de mercado en tiempo real:</strong> proveedor de datos con licencia.</li>
+                <li><strong>Alertas y ejecución automática:</strong> webhooks de TradingView y API del broker.</li>
+                <li><strong>Cuentas de usuario y progreso en la nube:</strong> servicio de autenticación.</li>
+                <li><strong>Suscripciones y pagos:</strong> pasarela de pago.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMUNIDAD -->
+    <section id="community" class="seccion">
+      <h2>Únete a ADRIUX Trading</h2>
+      <p class="intro">
+        Próximamente: videos educativos, análisis de
+        mercados y nuevas herramientas de inteligencia artificial.
+      </p>
+      <a class="button"
+         href="https://www.instagram.com/adriuxtrading/"
+         target="_blank" rel="noopener noreferrer">
+         Instagram
+      </a>
+      <a class="button outline"
+         href="https://www.youtube.com/results?search_query=ADRIUX+Trading"
+         target="_blank" rel="noopener noreferrer">
+         Buscar en YouTube
+      </a>
+
+      <h3 id="hoja-de-ruta" style="margin-top:44px">Hoja de ruta de la plataforma</h3>
+      <ul class="ruta">
+        <li><span class="badge ok">Disponible</span><strong>Academia completa</strong><p>3 niveles, 15 clases, ejercicios, cuestionarios y exámenes.</p></li>
+        <li><span class="badge">Preparado</span><strong>Videos por clase</strong><p>Cada clase tiene su espacio de video listo para YouTube o Vimeo.</p></li>
+        <li><span class="badge">Preparado</span><strong>Cuentas de usuario</strong><p>Progreso sincronizado entre dispositivos y certificados.</p></li>
+        <li><span class="badge">Preparado</span><strong>Membresía</strong><p>Contenido premium y comunidad privada mediante suscripción.</p></li>
+      </ul>
+    </section>
+  </div>
 </main>
 
+<dialog id="modal-cuenta" aria-labelledby="modal-titulo">
+  <h2 id="modal-titulo">Cuentas de usuario</h2>
+  <p>Las cuentas de usuario llegarán pronto. Por ahora todas las clases son gratuitas y tu progreso se guarda automáticamente en este navegador.</p>
+  <p class="nota">Esta función requiere conexión adicional (servicio de autenticación).</p>
+  <button class="button" type="button" id="modal-cerrar">Entendido</button>
+</dialog>
+
 <footer>
-  <p>© 2026 ADRIUX Trading. Todos los derechos reservados.</p>
+  <nav aria-label="Pie"><a href="#academy">Academia</a><a href="#risk">Calculadora</a><a href="#fondeo">Cuentas fondeadas</a><a href="#/progreso">Mi progreso</a></nav>
+  <p>© <span id="anio">2026</span> ADRIUX Trading. Todos los derechos reservados.</p>
   <p>
     Contenido exclusivamente educativo.
     No constituye asesoría financiera ni garantiza resultados.
@@ -260,26 +321,17 @@
   </p>
 </footer>
 
-<script>
-  function calculateRisk() {
-    const contracts = Number(document.getElementById("contracts").value);
-    const points = Number(document.getElementById("points").value);
-    const result = document.getElementById("result");
+<!-- Asistente de voz ADRI (ElevenLabs): botón flotante en toda la web, incluidas las clases -->
+<elevenlabs-convai agent-id="agent_1301m55r0m5sec8rc4p7nay8fvj6"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed@0.18.3" async type="text/javascript"></script>
 
-    if (!Number.isInteger(contracts) || contracts <= 0 ||
-        !Number.isFinite(points) || points <= 0) {
-      result.textContent = "Introduce valores válidos.";
-      return;
-    }
-
-    const risk = contracts * points * 2;
-    result.textContent = "Riesgo estimado: $" +
-      risk.toLocaleString("en-US", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
-  }
-</script>
-
+<script src="assets/js/config.js"></script>
+<script src="assets/js/graficos.js"></script>
+<script src="assets/js/curso/nivel1.js"></script>
+<script src="assets/js/curso/nivel2.js"></script>
+<script src="assets/js/curso/nivel3.js"></script>
+<script src="assets/js/indicadores.js"></script>
+<script src="assets/js/herramientas.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
