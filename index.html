@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ADRIUX Trading: academia, análisis de mercados, inteligencia artificial y gestión de riesgo.">
+  <title>ADRIUX Trading | Trading & AI Academy</title>
+  <style>
+    :root {
+      --gold: #e8b84b;
+      --dark: #090c13;
+      --panel: #151b27;
+      --muted: #aeb6c4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--dark);
+      color: white;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 1px solid #343434;
+    }
+    .brand {
+      color: var(--gold);
+      font-size: 23px;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+    nav a:hover { color: var(--gold); }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: radial-gradient(
+        ellipse at top, #263046, #090c13 70%
+      );
+    }
+    h1 {
+      font-size: clamp(36px, 7vw, 68px);
+      margin: 0;
+      color: var(--gold);
+    }
+    h2 { color: var(--gold); }
+    .subtitle {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 680px;
+      margin: 20px auto;
+    }
+    .button {
+      display: inline-block;
+      padding: 13px 25px;
+      margin: 10px;
+      background: var(--gold);
+      color: #111;
+      text-decoration: none;
+      border: 0;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    section {
+      padding: 65px 8%;
+      max-width: 1300px;
+      margin: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      padding: 28px;
+      border: 1px solid #343b48;
+      border-radius: 14px;
+    }
+    .card h3 { color: var(--gold); }
+    .card p { color: var(--muted); }
+    input {
+      padding: 13px;
+      width: 100%;
+      background: #0c1019;
+      color: white;
+      border: 1px solid #505768;
+      border-radius: 7px;
+      margin: 8px 0;
+    }
+    label { display: block; margin-top: 12px; }
+    .result {
+      color: var(--gold);
+      font-size: 23px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      border-top: 1px solid #343434;
+      color: var(--muted);
+    }
+    footer a { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">ADRIUX TRADING</div>
+  <nav>
+    <a href="#academy">Academia</a>
+    <a href="#tools">Herramientas</a>
+    <a href="#risk">Calculadora</a>
+    <a href="#community">Comunidad</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>ADRIUX TRADING</h1>
+    <p class="subtitle">
+      Trade Smarter. Powered by AI.
+      <br>
+      Educación, tecnología y análisis para traders.
+    </p>
+    <a href="#academy" class="button">Explorar Academia</a>
+    <a href="#tools" class="button outline">Explorar herramientas</a>
+  </div>
+
+  <section id="academy">
+    <h2>ADRIUX Trading Academy</h2>
+    <p>Aprende trading desde cero hasta conceptos avanzados.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Nivel 1 — Principiante</h3>
+        <p>
+          Mercados financieros, futuros, velas japonesas,
+          TradingView y fundamentos de riesgo.
+        </p>
+        <p>5 lecciones planificadas</p>
+      </div>
+      <div class="card">
+        <h3>Nivel 2 — Intermedio</h3>
+        <p>
+          Soportes, resistencias, liquidez, VWAP,
+          estrategias y cuentas fondeadas.
+        </p>
+        <p>5 lecciones planificadas</p>
+      </div>
+      <div class="card">
+        <h3>Nivel 3 — Avanzado</h3>
+        <p>
+          Análisis multitemporal, volumen, automatización,
+          inteligencia artificial y disciplina.
+        </p>
+        <p>5 lecciones planificadas</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <h2>Trading & AI Tools</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>AI Market Assistant</h3>
+        <p>
+          Próximamente: asistente educativo para
+          interpretar gráficos y escenarios del mercado.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Trading Indicators</h3>
+        <p>
+          Próximamente: indicadores y herramientas
+          para análisis técnico.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Funded Accounts</h3>
+        <p>
+          Guías educativas sobre reglas, evaluaciones
+          y gestión del riesgo en cuentas fondeadas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="risk">
+    <h2>Calculadora de Riesgo MNQ</h2>
+    <p>
+      Calcula el riesgo aproximado de una operación
+      de futuros Micro E-mini Nasdaq-100 (MNQ).
+    </p>
+    <div class="card">
+      <label for="contracts">Número de contratos MNQ</label>
+      <input id="contracts" type="number" min="1" step="1" value="1">
+
+      <label for="points">Distancia del stop en puntos</label>
+      <input id="points" type="number" min="0.25" step="0.25" value="20">
+
+      <button class="button" onclick="calculateRisk()">
+        Calcular riesgo
+      </button>
+
+      <div class="result" id="result" aria-live="polite"></div>
+      <p>
+        MNQ = $2 por punto y contrato.
+        No incluye comisiones, slippage ni otros costos.
+      </p>
+    </div>
+  </section>
+
+  <section id="community">
+    <h2>Únete a ADRIUX Trading</h2>
+    <p>
+      Próximamente: videos educativos, análisis de
+      mercados y nuevas herramientas de inteligencia artificial.
+    </p>
+    <a class="button"
+       href="https://www.instagram.com/adriuxtrading/"
+       target="_blank" rel="noopener noreferrer">
+       Instagram
+    </a>
+    <a class="button outline"
+       href="https://www.youtube.com/results?search_query=ADRIUX+Trading"
+       target="_blank" rel="noopener noreferrer">
+       Buscar en YouTube
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 ADRIUX Trading. Todos los derechos reservados.</p>
+  <p>
+    Contenido exclusivamente educativo.
+    No constituye asesoría financiera ni garantiza resultados.
+    Operar en mercados financieros implica riesgo de pérdida.
+  </p>
+</footer>
+
+<script>
+  function calculateRisk() {
+    const contracts = Number(document.getElementById("contracts").value);
+    const points = Number(document.getElementById("points").value);
+    const result = document.getElementById("result");
+
+    if (!Number.isInteger(contracts) || contracts <= 0 ||
+        !Number.isFinite(points) || points <= 0) {
+      result.textContent = "Introduce valores válidos.";
+      return;
+    }
+
+    const risk = contracts * points * 2;
+    result.textContent = "Riesgo estimado: $" +
+      risk.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+  }
+</script>
+
+</body>
+</html>
